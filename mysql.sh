@@ -6,8 +6,8 @@ declare -a repos=("https://repo.percona.com/apt/percona-release_latest.$(lsb_rel
 function install_mysql() {
     os_name=$1
     if [os_name == "Centos Linux"];then
-        let $service_name="mysqld"
-        let $repos=("https://repo.percona.com/yum/percona-release-latest.noarch.rpm")
+        service_name="mysqld"
+        repos=("https://repo.percona.com/yum/percona-release-latest.noarch.rpm")
     fi 
     install $service_name $os_name $dependencies $repos
     secure_mysql "root" $os_name
