@@ -34,7 +34,7 @@ function install() {
     os_name=$2
     dependencies=$3
     repos=$4
-    package_manager=$(get_packages_manager $os_name)
+    package_manager=$(get_packages_manager "$os_name")
     echo "$package_manager"
     # Full uninstall percona server if alredy exist
     if command -v "$service_name" &> /dev/null
