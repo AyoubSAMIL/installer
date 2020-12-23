@@ -1,7 +1,7 @@
 #!/bin/sh
 function modify_config() {
     sed -i -e "/$1 =/ s/= .*/= $2/" $3
-    sed -i -e "/$1 =/ s/#//g" $3 
+    sed -i -e "/$1 =/ s/#//g" $3
 }
 
 function get_system() {
@@ -21,7 +21,7 @@ function get_packages_manager() {
      if [ $os_name == "Centos Linux" ];
      then
         echo "yum"
-     elif [ $os_name == "Ubuntu" ]; 
+     elif [ $os_name == "Ubuntu" ];
      then
         echo "apt-get"
      else
@@ -36,6 +36,7 @@ function install() {
     dependencies=$3
     repos=$4
     package_manager=$(get_packages_manager $os_name)
+    echo "$package_manager"
     # Full uninstall percona server if alredy exist
     if command -v "$service_name" &> /dev/null
     then
