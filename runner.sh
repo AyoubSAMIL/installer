@@ -4,8 +4,7 @@
 . ./postfix.sh --source-only
 . ./helper.sh --source-only
 . ./ip_table.sh --source-only
-# update
-# check service unistall
+
 function main() {
     os_name=$(get_system)
     install_mysql "$os_name"
