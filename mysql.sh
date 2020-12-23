@@ -1,13 +1,13 @@
 #!/bin/sh
 service_name="mysql"
 dependencies=("gnupg2", "percona-server-server-5.6")
-repos="https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb")
+repos=("https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb")
 
 function install_mysql() {
     os_name=$1
     if [os_name == "Centos Linux"];then
         $service_name="mysqld"
-        $repos="https://repo.percona.com/yum/percona-release-latest.noarch.rpm -y"
+        $repos=("https://repo.percona.com/yum/percona-release-latest.noarch.rpm")
     fi 
     install $service_name $os_name $dependencies $repos
     secure_mysql "root" $os_name

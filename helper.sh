@@ -34,6 +34,7 @@ function install() {
     service_name=$1
     os_name=$2
     dependencies=$3
+    repos=$4
     package_manager=$(get_packages_manager $os_name)
     # Full uninstall percona server if alredy exist
     if command -v "$service_name" &> /dev/null
@@ -46,6 +47,16 @@ function install() {
         $package_manager remove $i*
         $package_manager purge $i*
         $package_manager install $i -y
+    done
+    for i in repos
+    do
+        $package_manager install $i -y
+        IFS='/' read -ra ADDR <<< "$i"
+
+        # Split url and get the repository's name
+        len=${#ADDR[@]}
+        repos_name=${ADDR[len-1]}
+        dpkg -i repos_name
     done
     service $service_name start &&
     pidof $service_name >/dev/null && echo "$service_name is running" || echo "$service_name NOT running"
