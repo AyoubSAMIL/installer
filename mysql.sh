@@ -5,7 +5,7 @@ declare -a repos=("https://repo.percona.com/apt/percona-release_latest.$(lsb_rel
 
 function install_mysql() {
     os_name=$1
-    if [os_name == "Centos Linux"];then
+    if [$os_name == "Centos Linux"];then
         service_name="mysqld"
         repos=("https://repo.percona.com/yum/percona-release-latest.noarch.rpm")
     fi 

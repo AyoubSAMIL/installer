@@ -41,7 +41,7 @@ function install() {
     then
         service $service_name stop
     fi
-    package_manager update -y
+    $package_manager update -y
     for i in ${dependencies[@]}
     do
         $package_manager remove $i*
