@@ -1,7 +1,7 @@
 #!/bin/sh
 service_name="mysql"
-dependencies=("gnupg2", "percona-server-server-5.6")
-repos=("https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb")
+declare -a dependencies=("gnupg2" "percona-server-server-5.6")
+declare -a repos=("https://repo.percona.com/apt/percona-release_latest.$(lsb_release -sc)_all.deb")
 
 function install_mysql() {
     os_name=$1

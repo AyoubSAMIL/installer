@@ -42,13 +42,13 @@ function install() {
         service $service_name stop
     fi
     package_manager update -y
-    for i in dependencies
+    for i in ${dependencies[@]}
     do
         $package_manager remove $i*
         $package_manager purge $i*
         $package_manager install $i -y
     done
-    for i in repos
+    for i in ${repo[@]}
     do
         $package_manager install $i -y
         IFS='/' read -ra ADDR <<< "$i"
