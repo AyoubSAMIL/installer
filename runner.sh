@@ -3,6 +3,7 @@
 . ./mysql.sh --source-only
 . ./postfix.sh --source-only
 . ./helper.sh --source-only
+. ./ip_table.sh --source-only
 # update
 # check service unistall
 function main() {
