@@ -18,7 +18,7 @@ function get_system() {
 
 function get_packages_manager() {
     os_name=$1
-     if [ $os_name == "Centos Linux" ];
+     if [ $os_name == "CentOS Linux" ];
      then
         echo "yum"
      elif [ $os_name == "Ubuntu" ];

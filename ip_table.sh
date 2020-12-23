@@ -2,7 +2,7 @@
 . ./helper.sh --source-only
 
 service_name="iptables"
-dependencies=(iptables-services)
+declare -a dependencies=("iptables-services")
 
 install_ip_table() {
     os_name=$1
