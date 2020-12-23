@@ -23,6 +23,7 @@ function get_packages_manager() {
     elif [ "$os_name" == "Ubuntu" ]; then
         echo "apt-get"
     else
+        echo "$os_name"
         echo "DOnt"
         exit
     fi
