@@ -14,14 +14,7 @@ function main() {
     }
 
 function prepare() {
-    os_name=$1
-    BOOT_DIR="installer"
-    if test -d "$BOOT_DIR"; then
-        rm -r $BOOT_DIR
-    fi
-    install "git" "$os_name" ("git") && git clone https://github.com/AyoubSAMIL/installer.git
-    cd $BOOT_DIR
-    install "dos2unix" "$os_name" ("dos2unix") && dos2unix *.sh && bash runner.sh
+    install "dos2unix" "$os_name" ("dos2unix") && dos2unix *.sh
 }
 main
 exit
